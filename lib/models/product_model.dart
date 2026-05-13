@@ -1,0 +1,22 @@
+class Product {
+  final int? id;
+  final String name;
+  final int price;
+  final String description;
+
+  Product({
+    this.id,
+    required this.name,
+    required this.price,
+    required this.description,
+  });
+
+  factory Product.fromJson(Map<String, dynamic> json) {
+    return Product(
+      id: json['id'] ?? 0,
+      name: json['name']?.toString() ?? '',
+      price: double.parse(json['price'].toString()).toInt(),
+      description: json['description']?.toString() ?? '',
+    );
+  }
+}
